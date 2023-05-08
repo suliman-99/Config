@@ -1,9 +1,6 @@
 from .common import *
-from decouple import config
 
 DEBUG = True
-
-ALLOWED_HOSTS = ['suliman99.pythonanywhere.com']
 
 SECRET_KEY = config('SECRET_KEY')
 

@@ -14,9 +14,17 @@ class Config(models.Model):
 
     domain = models.CharField(max_length=255)
     backup_domain = models.CharField(max_length=255, null=True, blank=True, )
+    
+    current_version = models.PositiveIntegerField(default=0)
+    last_accepted_version = models.PositiveIntegerField(default=0)
 
-    need_update = models.CharField(max_length=1, choices=BOOL_CHOICES, default=BOOL_FALSE)
-    force_update = models.CharField(max_length=1, choices=BOOL_CHOICES, default=BOOL_FALSE)
+    normal_download_link = models.CharField(max_length=255, null=True, blank=True, )
+    deep_download_link = models.CharField(max_length=255, null=True, blank=True, )
 
-    normal_update_link = models.CharField(max_length=255, null=True, blank=True, )
-    deep_update_link = models.CharField(max_length=255, null=True, blank=True, )
+
+class Contact(models.Model):
+
+    config = models.ForeignKey(Config, on_delete=models.CASCADE, related_name='contacts')
+
+    key = models.CharField(max_length=255)
+    value = models.CharField(max_length=255)

@@ -2,17 +2,21 @@ from .common import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'suliman99.pythonanywhere.com'
+    ]
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+
+
+SECRET_KEY = config('SECRET_KEY')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'HOST': os.environ.get('DATABASE_HOST'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'NAME': config('DATABASE_NAME'),
+        'HOST': config('DATABASE_HOST'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
     }
 }
 
