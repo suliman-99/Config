@@ -17,8 +17,6 @@ urlpatterns = [
     path('api/', include(app_patterns)),
 ]
 
-# import os
-# IS_DEV = os.environ.setdefault('IS_DEV', '')
 
 from decouple import config
 IS_DEV = config('IS_DEV')
