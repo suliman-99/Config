@@ -1,6 +1,6 @@
 from .common import *
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'suliman99.pythonanywhere.com'
